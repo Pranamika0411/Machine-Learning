@@ -1,42 +1,43 @@
-# Classifier Comparison Lab
+## Project structure
+```
+project-folder/
+│-- app.py                 # Streamlit app
+│-- train_models.py        # trains and saves all 5 models
+│-- metrics_utils.py       # metric calculation helper
+│-- requirements.txt
+│-- README.md
+│-- test_data.csv          # held-out test data (20%) for the app
+│-- model/                 # saved .joblib models, feature_names.json, metrics_table.csv
+```
 
-## a. Problem statement
-<Describe the prediction task in 3-4 lines: what is being predicted, why it matters, binary or multi-class.>
+## Setup and configuration
+- Python version: 3.13
+- Create and activate a virtual environment:
+  ```
+  python -m venv venv
+  
+  venv\Scripts\activate          # Windows
+  source venv/bin/activate       # Linux / Mac / BITS Virtual Lab
+  ```
+- Install dependencies:
+  ```
+  pip install -r requirements.txt
+  ```
+- Training configuration: 80/20 stratified train-test split, `random_state=42`, StandardScaler applied inside each model pipeline. The target column is saved as `target` in `test_data.csv`.
 
-## b. Dataset description  [1 mark]
-- Source: <Kaggle/UCI link>
-- Instances: <n> | Features: <n> (>=12) | Target: <name, classes, class balance>
-- Preprocessing: <missing values, encoding, scaling (StandardScaler inside each pipeline)>
-- Split: 80/20 stratified, random_state=42
+## How to run
 
-## c. GitHub repository
-<your repo link>
+1. Start the Streamlit app:
+   ```
+   streamlit run app.py
+   ```
+2. Open http://localhost:8501, upload `test_data.csv` in the sidebar, choose a model from the dropdown, and view the metrics, confusion matrix and classification report.
 
-## d. Models used  [5 marks]
-| ML Model Name | Accuracy | AUC | Precision | Recall | F1 | MCC |
-|---|---|---|---|---|---|---|
-| Logistic Regression | | | | | | |
-| Decision Tree | | | | | | |
-| KNN | | | | | | |
-| Naive Bayes | | | | | | |
-| Support Vector Machine | | | | | | |
 
-(Paste values from `model/metrics_table.csv` after running `python train_models.py <data.csv> <target_col>`.)
 
-### Observations  [3 marks]
-| ML Model Name | Observation about model performance |
-|---|---|
-| Logistic Regression | <your own analysis> |
-| Decision Tree | <...> |
-| KNN | <...> |
-| Naive Bayes | <...> |
-| Support Vector Machine | <...> |
-| **Overall winner** | <model + justification using MCC/AUC, not accuracy alone> |
-
-## Run locally
+Live app: https://machine-learning-s5apm7ztvdcajx4fbclkvq.streamlit.app/
 ```
 pip install -r requirements.txt
-python train_models.py data.csv target_col
 streamlit run app.py
 ```
-Live app: <Streamlit Community Cloud link>
+Live app: < Streamlit https://machine-learning-s5apm7ztvdcajx4fbclkvq.streamlit.app/ >
