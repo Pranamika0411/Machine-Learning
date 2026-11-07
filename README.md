@@ -1,3 +1,21 @@
+## a. Problem statement
+The goal is to predict whether a breast tumour is malignant or benign from measurements of cell nuclei computed from digitized images of fine needle aspirate (FNA) biopsies. This is a binary classification problem. Five models (Logistic Regression, Decision Tree, KNN, Naive Bayes, SVM) are trained on the same data and compared using Accuracy, AUC, Precision, Recall, F1 and MCC. The models are demonstrated through an interactive Streamlit app.
+
+## b. Dataset description
+- **Source:** Breast Cancer Wisconsin (Diagnostic) dataset, UCI Machine Learning Repository (also bundled with scikit-learn)
+- **Instances:** 569
+- **Features:** 30 numeric features: 10 nucleus measurements (radius, texture, perimeter, area, smoothness, compactness, concavity, concave points, symmetry, fractal dimension), each as mean, standard error and worst value
+- **Target:** `target` (0 = malignant, 1 = benign), 212 malignant and 357 benign, so moderately imbalanced
+- **Preprocessing:** no missing values; features scaled with StandardScaler inside each model pipeline
+- **Split:** 80/20 stratified, `random_state=42`. The test split (114 rows) is saved as `test_data.csv`.
+
+
+- [Allmodel.csv](https://github.com/user-attachments/files/34510550/Allmodel.csv)
+
+- [classification_report.csv](https://github.com/user-attachments/files/34510602/classification_report.csv)
+
+
+
 ## Project structure
 ```
 project-folder/
@@ -40,4 +58,3 @@ Live app: https://machine-learning-s5apm7ztvdcajx4fbclkvq.streamlit.app/
 pip install -r requirements.txt
 streamlit run app.py
 ```
-Live app: < Streamlit https://machine-learning-s5apm7ztvdcajx4fbclkvq.streamlit.app/ >
